@@ -1,0 +1,316 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "27c3244d-bba8-40dc-af7b-5db1a6f17f49")
+	(paper "A4")
+	(lib_symbols)
+	(wire
+		(pts
+			(xy 50.8 43.18) (xy 63.5 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "371f9e8d-75ea-4cca-b334-5e814d9b6387")
+	)
+	(wire
+		(pts
+			(xy 50.8 55.88) (xy 63.5 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49291418-01d1-4ead-946d-4e0075fc4b3d")
+	)
+	(wire
+		(pts
+			(xy 50.8 50.8) (xy 63.5 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d8d737f-393c-4c60-a4a0-6d872cf7ab38")
+	)
+	(wire
+		(pts
+			(xy 50.8 40.64) (xy 63.5 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "740f4a52-0fd3-46c3-b11f-3f0574495ebc")
+	)
+	(wire
+		(pts
+			(xy 50.8 45.72) (xy 63.5 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a587af2-0bf0-4630-a1f9-0b4453cc90ac")
+	)
+	(wire
+		(pts
+			(xy 50.8 53.34) (xy 63.5 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c07f800d-1b12-43ac-b1b5-41cc543e33df")
+	)
+	(wire
+		(pts
+			(xy 50.8 48.26) (xy 63.5 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2e5a99f-bfef-472b-ac64-1800f05cd288")
+	)
+	(sheet
+		(at 63.5 38.1)
+		(size 12.7 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "02669cf5-de35-4512-b002-009131b5189c")
+		(property "Sheetname" "nRF24"
+			(at 63.5 37.3884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "nrf24.kicad_sch"
+			(at 63.5 64.0846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CE" input
+			(at 63.5 43.18 180)
+			(uuid "db950b19-dbd2-412e-bbdb-1aebc86c1ff8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CSN" input
+			(at 63.5 45.72 180)
+			(uuid "a205aaac-e6be-4bb8-8e7b-3bff8b44b280")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "IRQ" input
+			(at 63.5 55.88 180)
+			(uuid "4b3d536b-bbfe-4a24-b4a7-91536df69d76")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MISO" input
+			(at 63.5 53.34 180)
+			(uuid "cc1e48f1-6f4d-47cc-8944-6314592bf68b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOSI" input
+			(at 63.5 50.8 180)
+			(uuid "5e37aa02-c3ba-4798-8196-83a956cccb80")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SCK" input
+			(at 63.5 48.26 180)
+			(uuid "4d37945d-f38a-4bcf-b3f4-48239a0530c1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "VCC" input
+			(at 63.5 40.64 180)
+			(uuid "f9ea6975-23de-4134-af9f-82c11d7cd849")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "nRF24"
+				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 38.1 38.1)
+		(size 12.7 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "09a4ffe3-c396-48c7-a3db-972bae6b3c80")
+		(property "Sheetname" "Connector"
+			(at 38.1 37.3884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "connector.kicad_sch"
+			(at 38.1 64.0846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CE" input
+			(at 50.8 43.18 0)
+			(uuid "781bdc6f-c53f-4f15-8af0-d159d8a05db3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CSN" input
+			(at 50.8 45.72 0)
+			(uuid "48a9f2b4-d5ff-4820-a4a7-21c0a32c29ab")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "IRQ" input
+			(at 50.8 55.88 0)
+			(uuid "7ffaba74-5bad-4019-bb5f-c3c7e24cc3c8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MISO" input
+			(at 50.8 53.34 0)
+			(uuid "12b2c4dc-dded-4a21-86c3-3e8b737cfbc1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MOSI" input
+			(at 50.8 50.8 0)
+			(uuid "17171e64-d3a6-41ad-8973-9fea872e2751")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SCK" input
+			(at 50.8 48.26 0)
+			(uuid "96183896-42fd-4fe8-8d32-dd80a9202c67")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "VCC" input
+			(at 50.8 40.64 0)
+			(uuid "9a6317cf-978a-404f-99e2-e8dfa0ef7bb9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "nRF24"
+				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
