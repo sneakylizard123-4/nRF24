@@ -34,3 +34,22 @@ created_at: 2026-09-20
 ![Root sheet](images/schematic/01-root.png)
 
 **Total time spent: 1 hours**
+
+# September 21: rf connector sheet
+
+## What I did:
+
+- Made a new sheet for the sma connector and balun
+- Added a 3.3v regulator
+
+## Why:
+
+- Planning on adding a PA/LNA to the nRF24 to boost its range
+- 3.3v regulator so that it can be powered from 5v mcus too hopefully
+
+## Screenshots:
+
+![Screenshot](images/screenshots/2026-0921-1.png)
+![ldo](images/screenshots/2026-0921-2.png)
+
+**Total time spent: 1 hour**

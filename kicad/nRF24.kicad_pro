@@ -648,7 +648,7 @@
         "uuid": "27c3244d-bba8-40dc-af7b-5db1a6f17f49"
       }
     ],
-    "used_designators": "J1-2,#PWR1-7,X1-2,L1-4,R1-3,C1-12,U1",
+    "used_designators": "J1-3,#PWR1-7,X1-2,L1-4,R1-3,C1-15,U1-2",
     "variants": []
   },
   "sheets": [
@@ -663,6 +663,10 @@
     [
       "09a4ffe3-c396-48c7-a3db-972bae6b3c80",
       "Connector"
+    ],
+    [
+      "b8c3fa01-d6be-4735-9ad0-ee9cd3ac12b8",
+      "RF Connector"
     ]
   ],
   "text_variables": {},

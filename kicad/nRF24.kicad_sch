@@ -37,6 +37,16 @@
 	)
 	(wire
 		(pts
+			(xy 76.2 40.64) (xy 88.9 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a49bffc-57b2-4181-a899-c26a88d5d86b")
+	)
+	(wire
+		(pts
 			(xy 50.8 40.64) (xy 63.5 40.64)
 		)
 		(stroke
@@ -183,6 +193,16 @@
 				(justify left)
 			)
 		)
+		(pin "ANT" input
+			(at 76.2 40.64 0)
+			(uuid "f5f1060d-2e0c-44d7-bf68-ca804d5bfb39")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49"
@@ -303,6 +323,62 @@
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49"
 					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 88.9 38.1)
+		(size 12.7 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "b8c3fa01-d6be-4735-9ad0-ee9cd3ac12b8")
+		(property "Sheetname" "RF Connector"
+			(at 88.9 37.3884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "rfconn.kicad_sch"
+			(at 88.9 64.0846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "ANT" input
+			(at 88.9 40.64 180)
+			(uuid "955e5345-5a19-4212-824f-a789273c7ac7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "nRF24"
+				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49"
+					(page "4")
 				)
 			)
 		)
