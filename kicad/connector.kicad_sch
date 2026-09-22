@@ -622,7 +622,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7d456447-5d9c-4b8b-8d24-f7f3ed5cae35")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR06"
 			(at 38.1 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -683,7 +683,7 @@
 		(instances
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49/09a4ffe3-c396-48c7-a3db-972bae6b3c80"
-					(reference "#PWR07")
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)
