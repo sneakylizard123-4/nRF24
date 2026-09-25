@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "RFX2401C")(type "KiCad")(uri "${KIPRJMOD}/parts/libs/RFX2401C.pretty")(options "")(descr "RFX2401C QFN-16 3x3mm footprint, STEP 3D model in kicad/parts/3dmodel"))
+)
