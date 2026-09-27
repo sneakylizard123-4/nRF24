@@ -1,7 +1,7 @@
 ---
 title: nRF24 Breakout Board
 author: sneakylizard123-4
-description: Discrete nRF24L01P+ 2.4GHz transceiver breakout with a hand-tuned LC balun and SMA antenna port, driven over SPI from any 3.3V MCU.
+description: Discrete nRF24L01P+ 2.4GHz transceiver breakout with a hand-routed LC balun and SMA antenna port, driven over SPI from any 3.3V MCU.
 created_at: 2026-09-20
 ---
 
@@ -12,7 +12,7 @@ created_at: 2026-09-20
 - Set up the KiCad project: root sheet plus two sub-sheets (radio + connector)
 - Placed the nRF24L01P+ and built the RF front end by hand: LC balun and harmonic filter out to an SMA jack
 - Added the 16MHz crystal with load caps and bias resistor
-- Critically wired VDD_PA filter so the PA supply and balun share cleanly
+- Wired VDD_PA filter so the PA supply and balun share cleanly
 - Ran the interface off one 1x08 2.54mm header: GND, VCC, CE, CSN, SCK, MOSI, MISO, IRQ
 - 1x08 header is more breadboard friendly than the standard 2x4 header
 - Ran ERC - no violations
@@ -33,7 +33,7 @@ created_at: 2026-09-20
 
 ![Root sheet](images/schematic/01-root.png)
 
-**Total time spent: 1 hours**
+**Total time spent: 1 hour**
 
 # September 21: rf connector sheet
 
@@ -70,7 +70,7 @@ created_at: 2026-09-20
 ## Why:
 
 - The nRF24L01P+ internal PA only does about +0dBm
-- RFX2401C adds a real PA (~+20dBm) plus an LNA, so improved range
+- RFX2401C adds a real PA (~+20dBm) plus an LNA, for improved range
 - The radio's PA is differential and the PA/LNA is single-ended, so the balun has to hand the RFX2401C a clean 50 ohm line, then match the PA side back to the antenna
 - Registering the parts project-local (kicad/parts/) so the schematic builds without depending on a global library
 
@@ -106,4 +106,30 @@ created_at: 2026-09-20
 
 ![Final board bottom: ground via web](images/pcb/03-bottom-final.png)
 
-**Total time spent: 2 hour**
+**Total time spent: 2 hours**
+
+# September 26: BOM, licenses, and a lot of checking
+
+## What I did:
+
+- Built BOM.csv off the production bom: 25 line items, every one with an LCSC part number and a supplier link. Grand total $24.99 for 5 boards, which is $10.00 of PCBs plus $14.99 of components bought at minimum order quantity ($5.56 per board if you could buy the exact count)
+- Checked every supplier link actually returns 200 rather than assuming the URL pattern holds
+- Added LICENSE (CERN OHL v2-P) and LICENSE-MIT
+- Fixed the board size in the README. Edge.Cuts measures 50.0 x 30.0mm, not the 53.5x34mm I had written down
+- Measured the routed antenna trace: U3-ANT is 0.4mm single-ended on 1.6mm FR4, which works out to roughly 70 ohm rather than 50, so the match is probably wrong as drawn
+- Found four footprints that cannot be ordered as drawn and specced substitutes in the BOM notes:
+  - L1 (2.3nH) and L3 (7.9nH) have no 0603 part at those values. Every 0603-numbered 2.3nH in the catalog is physically 0201, which will not sit on a 0603 pad. Swapped to 0402, small enough to land inside the existing pads
+  - X1 HC-52/U does not exist in any supplier catalog. Swapped to HC-49S, which does move the pad pitch from 3.8mm to 4.88mm, so the footprint gets swapped and the load caps nudged
+  - J2 is now a generic 4-post THT SMA standing in for the Amphenol 901-143 the footprint is named after. I have not checked the substitute's ground posts against the footprint yet
+  - U2's footprint value says TLV75733PDBV but the orderable part is the PDBVR tape-and-reel variant. Same die
+- L2 (12nH) has a self-resonant frequency of 3GHz, uncomfortably close to running at 2.4GHz
+- Added a .gitignore. kicad/.history was tracked as a submodule with no .gitmodules entry behind it, so `git submodule status` failed on a fresh clone, and a dead temp-freerouting.dsn was tracked as well
+
+## Why:
+
+- Forge wants a supplier link on every line item and a total, so I verified each link instead of trusting the pattern
+- CERN OHL v2-P because this is a personal 5-board build, not a product. Relicense to -S if boards are ever sold
+- The board size was wrong because I wrote 53.5x34mm from memory instead of measuring the outline. Both that and the 70 ohm trace are the kind of thing you only catch by measuring, so both are written down now
+- The broken submodule would have bitten anyone cloning the repo, and a tracked FreeRouting session is the wrong thing to ship on a board that is meant to be hand-routed
+
+**Total time spent: not logged**

@@ -1,0 +1,14 @@
+# KiCad local history. Not part of the design, and KiCad's own .history/.git
+# makes it show up as a broken submodule reference.
+kicad/.history/
+
+# Dead FreeRouting session file from an abandoned auto-route attempt. The board
+# in kicad/ is hand-routed; see JOURNAL.md. Left here only as a local scratch
+# file, it should not be committed.
+kicad/temp-freerouting.dsn
+
+# KiCad scratch files
+fp-info-cache
+*-backups/
+*.lck
+*.kicad_pcb-bak

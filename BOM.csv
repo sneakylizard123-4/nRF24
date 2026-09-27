@@ -1,0 +1,31 @@
+Designator,Footprint,Quantity,Value,LCSC Part #,MPN,MOQ,Unit Price,Total Cost,Amount,Supplier Link,Notes
+"C1, C12, C14, C17",Capacitor_SMD:C_0603_1608Metric,4,10uF,C19702,CL10A106KP8NNNC,20,$0.0322,$0.6440,20,https://www.lcsc.com/product-detail/C19702.html,10uF 50V X5R
+"C10, C11",Capacitor_SMD:C_0603_1608Metric,2,22pF,C376775,TCC0603COG220J500CT,100,$0.0049,$0.4900,100,https://www.lcsc.com/product-detail/C376775.html,50V C0G
+"C13, C15",Capacitor_SMD:C_0603_1608Metric,2,100nF,C282519,TCC0603X7R104K500CT,20,$0.0094,$0.1880,20,https://www.lcsc.com/product-detail/C282519.html,50V X7R
+"C2, C16",Capacitor_SMD:C_0603_1608Metric,2,1uF,C20070307,CGA0603X5R105K100JT,100,$0.0084,$0.8400,100,https://www.lcsc.com/product-detail/C20070307.html,10V X5R
+C18,Capacitor_SMD:C_0603_1608Metric,1,0.3pF,C53514,0603CG0R3C500NT,100,$0.0063,$0.6300,100,https://www.lcsc.com/product-detail/C53514.html,50V C0G
+"C9, C19, C20, C21, C22",Capacitor_SMD:C_0603_1608Metric,5,1.5pF,C376772,TCC0603COG1R5C500CT,100,$0.0047,$0.4700,100,https://www.lcsc.com/product-detail/C376772.html,50V C0G
+C3,Capacitor_SMD:C_0603_1608Metric,1,10nF,C163179,0603B103K250CT,10,$0.0048,$0.0480,10,https://www.lcsc.com/product-detail/C163179.html,25V X7R
+C4,Capacitor_SMD:C_0603_1608Metric,1,33nF,C696862,TCC0603X7R333M500CT,100,$0.0050,$0.5000,100,https://www.lcsc.com/product-detail/C696862.html,50V X7R
+C5,Capacitor_SMD:C_0603_1608Metric,1,1nF,C106246,CC0603JRNPO9BN102,50,$0.0054,$0.2700,50,https://www.lcsc.com/product-detail/C106246.html,50V NP0
+C6,Capacitor_SMD:C_0603_1608Metric,1,2.2nF,C374074,TCC0603X7R222K500CT,100,$0.0044,$0.4400,100,https://www.lcsc.com/product-detail/C374074.html,50V X7R
+C7,Capacitor_SMD:C_0603_1608Metric,1,4.7pF,C282506,TCC0603COG4R7C500CT,10,$0.0022,$0.0220,10,https://www.lcsc.com/product-detail/C282506.html,50V C0G
+C8,Capacitor_SMD:C_0603_1608Metric,1,15pF,C107037,CC0603JRNPO9BN150,100,$0.0033,$0.3300,100,https://www.lcsc.com/product-detail/C107037.html,50V NP0
+J1,Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical,1,Conn_01x08,C124381,B-2100S08P-A110,5,$0.0796,$0.3980,5,https://www.lcsc.com/product-detail/C124381.html,"THT vertical, matches footprint"
+J2,Connector_Coaxial:SMA_Amphenol_901-143_Horizontal,1,Conn_Coaxial,C496549,BWSMA-KE-Z001,1,$0.4053,$0.4053,1,https://www.lcsc.com/product-detail/C496549.html,SUBSTITUTE: generic 4-post THT SMA right-angle. VERIFY ground-post pattern vs datasheet before ordering
+L1,Inductor_SMD:L_0402_1005Metric,1,2.3nH,C3910891,LQG15WZ2N3B02D,5,$0.1305,$0.6525,5,https://www.lcsc.com/product-detail/C3910891.html,SUBSTITUTE: 2.3nH does not exist in 0603 (all 0603-numbered 2.3nH are 0201). 0402 land is 1.56mm span vs 2.45mm for 0603, so it fits the existing pads with no re-route. SRF 7GHz
+L2,Inductor_SMD:L_0603_1608Metric,1,12nH,C55067212,LQG1608HS12NJT,50,$0.0086,$0.4300,50,https://www.lcsc.com/product-detail/C55067212.html,"CAUTION: SRF is 3GHz, close to the 2.4GHz operating point"
+L3,Inductor_SMD:L_0402_1005Metric,1,7.9nH,C412360,LQW15AN7N9C10D,10,$0.0583,$0.5830,10,https://www.lcsc.com/product-detail/C412360.html,SUBSTITUTE: 7.9nH does not exist in 0603. 0402 land is 1.56mm span vs 2.45mm for 0603, so it fits the existing pads with no re-route
+"L4, L5",Inductor_SMD:L_0603_1608Metric,2,2.4nH,C55067198,LQG1608HS2N4ST,50,$0.0086,$0.4300,50,https://www.lcsc.com/product-detail/C55067198.html,SRF 6GHz
+R1,Resistor_SMD:R_0603_1608Metric,1,22k,C31850,0603WAF2202T5E,100,$0.0042,$0.4200,100,https://www.lcsc.com/product-detail/C31850.html,1% 100mW
+R2,Resistor_SMD:R_0603_1608Metric,1,1M,C22935,0603WAF1004T5E,100,$0.0020,$0.2000,100,https://www.lcsc.com/product-detail/C22935.html,1% 100mW
+R3,Resistor_SMD:R_0603_1608Metric,1,10k,C98220,RC0603FR-0710KL,100,$0.0035,$0.3500,100,https://www.lcsc.com/product-detail/C98220.html,1% 100mW
+"R4, R5",Resistor_SMD:R_0603_1608Metric,2,1k,C21190,0603WAF1001T5E,100,$0.0026,$0.2600,100,https://www.lcsc.com/product-detail/C21190.html,1% 100mW
+U1,Package_DFN_QFN:QFN-20-1EP_4x4mm_P0.5mm_EP2.5x2.5mm,1,nRF24L01P,C8791,NRF24L01P-R,1,$4.3494,$4.3494,1,https://www.lcsc.com/product-detail/C8791.html,"Nordic. Cheaper pin-compatible drop-in: Si24R1 C14436 (https://www.lcsc.com/product-detail/C14436.html) at $0.8720, needs firmware revalidation"
+U2,Package_TO_SOT_SMD:SOT-23-5,1,TLV75733PDBV,C485517,TLV75733PDBVR,5,$0.2010,$1.0050,5,https://www.lcsc.com/product-detail/C485517.html,3.3V LDO. Footprint value says PDBV (tape&reel suffix) but the orderable part is PDBVR
+X1,Crystal:Crystal_HC49-U_Vertical,1,16MHz,C7275043,HY16M49SFB2T02,10,$0.0639,$0.6390,10,https://www.lcsc.com/product-detail/C7275043.html,"SUBSTITUTE: HC-52/U is not in the LCSC catalog. HC-49S, CL=12pF per nRF24L01P ref design. Pad pitch changes 3.8mm to 4.88mm (HC-49S is 4.65mm; 0.115mm per side absorbs into the 1.5mm pad)"
+PCB,(board outline 50.0 x 30.0 mm),5,2-layer FR4 1.6mm HASL Green 100x100mm panel,,,1,$2.00,$10.00,5,https://jlcpcb.com/quote,ESTIMATE only. JLCPCB quote API unreachable; confirm at checkout
+STENCIL,,0,100x100mm stainless stencil - NOT being ordered,,,,,$0.00,0,https://jlcpcb.com/quote,Optional. Add only if you want JLCPCB to solder U1 (QFN-20) and U2 (SOT-23-5); otherwise hand-solder and skip this line
+TOTAL,,,Components: $14.99,,,,,,,,Per-board component cost: $5.56
+TOTAL,,,PCBs: $10.00,,,,,,,,Board qty 5
+TOTAL,,,GRAND TOTAL: $24.99,,,,,,,,"Excludes shipping, tax and the optional SMT assembly"
