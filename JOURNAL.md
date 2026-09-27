@@ -114,16 +114,22 @@ created_at: 2026-09-20
 
 - Built BOM.csv off the production bom
 - Added LICENSE (CERN OHL v2-P) and LICENSE-MIT
-- Fixed the board size in the README.
-- Measured the routed antenna trace: U3-ANT is 0.4mm single-ended on 1.6mm FR4, which works out to roughly 70 ohm rather than 50, so the match is probably wrong as drawn
+- Fixed the board size in the README
+- Measured the routed antenna trace: U3-ANT is 0.4mm single-ended over solid ground on 1.6mm FR4, which works out to about 122 ohm rather than 50
+- Worked out that there is no trace width that fixes it on 2 layers at 1.6mm. 50 ohm needs 3.3mm, but the shunt caps are 0603 on a 1.575mm pitch, so a 3.3mm trace swallows them and the C-L-C-L-C ladder stops being a ladder
+- A 4-layer stack with 0.21mm prepreg hits 50 ohm at 0.46mm, so the width I drew is about right for 4 layers and badly wrong for the 2-layer board it is on
 - L1 (2.3nH) and L3 (7.9nH) have no 0603 part at those values. Every 0603-numbered 2.3nH in the catalog is physically 0201, which will not sit on a 0603 pad. Swapped to 0402, small enough to land inside the existing pads
 - L2 (12nH) has a self-resonant frequency of 3GHz, uncomfortably close to running at 2.4GHz
-- Added a .gitignore.
+- Added a .gitignore, and untracked kicad/.history. It was committed as a gitlink with no .gitmodules entry, so cloning the repo errored out on submodule status
 
 ## Why:
 
 - Forge wants a supplier link on every line item and a total
 - CERN OHL v2-P because this is a personal 5-board build, not a product. Relicense to -S if boards are ever sold
-- The board size was wrong because I wrote 53.5x34mm from memory instead of measuring the outline. Both that and the 70 ohm trace are the kind of thing you only catch by measuring, so both are written down now
+- The board size was wrong because I wrote 53.5x34mm from memory instead of measuring the outline. Same for the trace impedance, and the first number I wrote for that was wrong too, in the other direction. Both are the kind of thing you only catch by measuring, so both are written down now
+
+## Screenshots:
+
+![image](images/pcb/01-top-placement.png)
 
 **Total time spent: 1 hour**
