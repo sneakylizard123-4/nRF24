@@ -1973,7 +1973,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0997ec5e-b6d5-4369-825f-e2bb44671192")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR015"
 			(at 69.85 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -2033,7 +2033,7 @@
 		(instances
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49/7255090d-0486-497c-9034-c28bc995a136"
-					(reference "#PWR014")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -2215,7 +2215,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e19b16a-213f-41d0-971b-19cf99cd4778")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR013"
 			(at 63.5 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -2275,7 +2275,7 @@
 		(instances
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49/7255090d-0486-497c-9034-c28bc995a136"
-					(reference "#PWR012")
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -2293,7 +2293,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5e689676-9a1c-48cb-b89b-c18949fb7179")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR014"
 			(at 64.77 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -2353,7 +2353,7 @@
 		(instances
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49/7255090d-0486-497c-9034-c28bc995a136"
-					(reference "#PWR013")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -2613,7 +2613,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8faa7c90-c055-4c83-803b-5f02148b0a3d")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR012"
 			(at 34.29 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -2673,7 +2673,7 @@
 		(instances
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49/7255090d-0486-497c-9034-c28bc995a136"
-					(reference "#PWR011")
+					(reference "#PWR012")
 					(unit 1)
 				)
 			)
@@ -2691,7 +2691,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9eda8c91-6d5b-4908-b94e-bc5e1dbc832e")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR016"
 			(at 82.55 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -2751,7 +2751,7 @@
 		(instances
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49/7255090d-0486-497c-9034-c28bc995a136"
-					(reference "#PWR015")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)

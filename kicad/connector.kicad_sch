@@ -1969,7 +1969,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7d456447-5d9c-4b8b-8d24-f7f3ed5cae35")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR08"
 			(at 38.1 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -2030,7 +2030,7 @@
 		(instances
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49/09a4ffe3-c396-48c7-a3db-972bae6b3c80"
-					(reference "#PWR07")
+					(reference "#PWR08")
 					(unit 1)
 				)
 			)
@@ -2227,7 +2227,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ea9fe21b-47fe-4942-a888-ca0890315f43")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR09"
 			(at 127 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -2287,7 +2287,7 @@
 		(instances
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49/09a4ffe3-c396-48c7-a3db-972bae6b3c80"
-					(reference "#PWR08")
+					(reference "#PWR09")
 					(unit 1)
 				)
 			)
@@ -2305,7 +2305,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "feecac27-5994-4388-b8d7-81dc0c7ce35a")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR010"
 			(at 152.4 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -2365,7 +2365,7 @@
 		(instances
 			(project "nRF24"
 				(path "/27c3244d-bba8-40dc-af7b-5db1a6f17f49/09a4ffe3-c396-48c7-a3db-972bae6b3c80"
-					(reference "#PWR09")
+					(reference "#PWR010")
 					(unit 1)
 				)
 			)
