@@ -133,3 +133,31 @@ created_at: 2026-09-20
 ![image](images/pcb/01-top-placement.png)
 
 **Total time spent: 1 hour**
+
+# September 26: Back to 4 layers
+
+## What I did:
+
+- Switched the stackup to JLCPCB's JLC04161H-7628: 4 layers, 0.2104mm of prepreg down to In1.Cu, 1.065mm core, 1.6062mm total
+- Put a solid GND plane on In1.Cu and the +3.3V plane on In2.Cu. F.Cu keeps all the routing, B.Cu keeps the 10 CE and VIN runs
+- Left the 221 through vias alone. They already tie F.Cu down to ground, and now that there is a ground plane 0.245mm under the antenna that is exactly what I wanted
+- Recomputed the antenna trace against the real prepreg instead of an assumed 1.6mm of solid FR4: 0.4mm is 54 ohm, 0.46mm is 50 ohm and holds 46-54 ohm across the prepreg and er spread JLC holds
+- Rewrote the README for the 4-layer stackup and pulled the stale 2-layer and 70 ohm figures out of it
+
+## Why:
+
+- 2 layers at 1.6mm cannot do 50 ohm here. 50 ohm needs 3.3mm of trace, the shunt caps are 0603 on a 1.575mm pitch, so anything that wide stops being a matching ladder
+- A ground plane 0.2104mm under the trace is what makes the impedance a number I can calculate instead of guess at
+
+## Still to do:
+
+- Widen the antenna run from 0.4mm to 0.46mm. It is a 0.06mm change to 16.8mm of track
+- Clear the F.Cu ground pour back off the antenna run. Until that is done the trace is a coplanar waveguide, not a microstrip, and the 50 ohm above is not what the board will actually do
+- Chase up the two 0.2mm segments still sitting on the antenna nets
+- Get a real 4-layer quote from JLCPCB. The $10.00 in the README was a 2-layer estimate and is now marked pending rather than guessed at
+
+## Screenshots:
+
+![Antenna trace impedance on the new stackup, and its tolerance across the fab spread](images/pcb/05-antenna-impedance.png)
+
+**Total time spent: 1 hour**

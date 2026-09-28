@@ -47,7 +47,10 @@ graph LR
 
 ## PCB Design
 
-50.0 x 30.0 mm, 2-layer, 1.6mm thick, 5mm radius corners.
+50.0 x 30.0 mm, 4-layer, 1.6mm thick, 5mm radius corners, on the JLCPCB
+JLC04161H-7628 stackup. F.Cu carries the routing, In1.Cu is a solid ground
+plane, In2.Cu is the +3.3V plane, and B.Cu has the leftover CE and VIN runs.
+
 The PA/LNA sits on the RF line between the radio and the SMA, which hangs off the board edge.
 
 ![Routed board](images/pcb/04-top-final.png)
@@ -81,10 +84,15 @@ the first order actually costs.
 
 | Item | Cost |
 |------|------|
-| PCB (qty 5, 2-layer) | $10.00 |
 | Components (per board) | $5.56 |
 | Components (first order, MOQ rounded, 5 boards) | $14.99 |
-| **Total (5 boards, parts + boards)** | **$24.99** |
+| PCB (qty 5, 4-layer) | pending quote |
+| **Total (5 boards, parts + boards)** | **$14.99 + board cost** |
+
+The component figures are unaffected by the move to 4 layers. The board cost is
+blank because the $10.00 previously shown was a 2-layer estimate and the stackup
+changed after that number was worked out. Drop the real quote in when you have
+it.
 
 The gap between the two component figures is reel minimums. 14 of the 25 line
 items have a minimum of 50 or 100, and those account for most of it.
@@ -99,19 +107,23 @@ supplier links.
 
 ## Production
 
-Not built yet. Board house is JLCPCB, 2-layer FR4, 1.6mm, HASL (lead-free),
-green, 50.0 x 30.0 mm inside a 100x100mm panel, qty 5.
+Not built yet. Board house is JLCPCB, 4-layer FR4 on the JLC04161H-7628
+stackup, 1.6mm, HASL (lead-free), green, 50.0 x 30.0 mm inside a 100x100mm
+panel, qty 5. That stackup puts 0.2104mm of prepreg between F.Cu and In1.Cu, so
+the antenna trace on F.Cu references a ground plane 0.2104mm away, and In2.Cu
+carries the +3.3V plane.
 
 The board is hand-routed, no autorouter. The antenna-side net (`U3-ANT`) runs
-as single-ended 0.4mm microstrip on the top layer from the RFX2401C antenna pin
-to J2, with the matching network (C19, L4, C20, C21, L5, C22) as an alternating
-LC ladder along the way. The nRF24 differential PA outputs (`U1-ANT1`,
-`U1-ANT2`) are also 0.4mm and stay paired until the balun. 219 vias, mostly
-dropping the supply and SPI nets to the bottom layer.
+as single-ended 0.4mm microstrip on F.Cu from the RFX2401C antenna pin to J2,
+with the matching network (C19, L4, C20, C21, L5, C22) as an alternating LC
+ladder along the way. The nRF24 differential PA outputs (`U1-ANT1`, `U1-ANT2`)
+are also 0.4mm and stay paired until the balun. 221 through vias, mostly
+stitching the top layer down to the In1.Cu ground plane.
 
-That 0.4mm trace is worth a second look. On 1.6mm FR4 it works out to roughly
-70 ohm single-ended, not 50. Either the LC ladder is trimmed to compensate, or
-the antenna-side trace wants to be wider. See Known Issues.
+The 0.4mm width is close but not exact. Over 0.2104mm of prepreg, 0.4mm works
+out to 54 ohm and 0.46mm works out to 50, which stays inside 46-54 ohm across
+the prepreg and er spread JLCPCB actually holds. The 0.06mm change has not been
+made yet. See Known Issues.
 
 ## Repository Structure
 
@@ -132,7 +144,11 @@ the antenna-side trace wants to be wider. See Known Issues.
 ## Known Issues
 
 - Board is routed but unassembled and untested
-- The antenna-side trace is 0.4mm on 1.6mm FR4, which works out to roughly 70 ohm rather than 50, so the matching network is very likely wrong as drawn. Plan on re-tuning the LC ladder (C19, L4, C20, C21, L5, C22) or widening that trace, and plan to measure with a VNA rather than trust the values
+- The antenna-side trace is 0.4mm over 0.2104mm of prepreg, which works out to 54 ohm rather than 50. 0.46mm is the correct width: 50 ohm nominal, 46-54 ohm across the prepreg and er spread. It is a 0.06mm change to 16.8mm of track and has not been made yet
+- The F.Cu ground pour still runs right up to the antenna trace. On 4 layers that turns the trace into a coplanar waveguide and drops it below the calculated figure, so In1.Cu is not yet the only reference. The pour has to be cleared back from that run before the width number above means anything
+- Two segments on the antenna nets are still 0.2mm rather than the surrounding width. 0.2mm is about 110 ohm on this stackup, so that is fine as pad fanout and a step discontinuity anywhere else. Worth checking which of the two it is
+- All 221 vias are through vias, so every ground via punches an anti-pad in the In2.Cu +3.3V plane. Harmless at 3.3V, but it is a lot of voids in the rail
+- The board render in PCB Design predates the move to 4 layers
 - PA/LNA match uses tight-tolerance parts (0.3pF / 1.5pF / 2.4nH); the values may need tuning on the first real board
 - TXEN/RXEN control of the RFX2401C is wired to VDD_PA and CE through 1k resistors - direction switching is a prototype hack, revisit if it misbehaves
 - Two schematic parts are not orderable as drawn, so the footprints need editing before fabrication
