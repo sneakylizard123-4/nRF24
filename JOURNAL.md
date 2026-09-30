@@ -78,6 +78,8 @@ created_at: 2026-09-20
 
 ![PA/LNA sheet](images/schematic/04-palna.png)
 
+![RF connector sheet](images/schematic/05-rfconn.png)
+
 **Total time spent: 1 hour**
 
 # September 24: Routed the board
@@ -107,6 +109,27 @@ created_at: 2026-09-20
 ![Final board bottom: ground via web](images/pcb/03-bottom-final.png)
 
 **Total time spent: 2 hours**
+
+# September 25: RFX2401C symbol, footprint and 3D model
+
+## What I did:
+
+- Brought the RFX2401C in properly instead of borrowing a generic symbol: wrote the project-local symbol (RFX2401C.kicad_sym) and a QFN-16 footprint with a 3.0x3.0mm body on a 0.50mm pitch
+- Generated the 3D model from the package drawing (RFX2401C.step) so the board actually looks like the part instead of a grey box
+- Rebuilt the PA_LNA sheet around the real pinout, which is where most of the day went
+- Grew the placement on the board to match, then re-checked the ground return under the new part
+
+## Why:
+
+- I had been treating the RFX2401C as a black box with two RF pins. With a real symbol I could actually read the enable and mode pins and wire them instead of guessing
+- The exposed pad matters here. It is the ground return for the whole front end, so it had to be a real thermal pad in the footprint rather than left off
+- The 3D model is not decoration, it is how I catch a part hanging off the edge of the board before ordering
+
+## Screenshots:
+
+![The RFX2401C placed on the 2-layer board, rendered from the STEP model](images/pcb/06-rfx2401c-front-end.png)
+
+**Total time spent: 1 hour**
 
 # September 26: BOM, licenses, and a lot of checking
 
@@ -154,10 +177,50 @@ created_at: 2026-09-20
 - Widen the antenna run from 0.4mm to 0.46mm. It is a 0.06mm change to 16.8mm of track
 - Clear the F.Cu ground pour back off the antenna run. Until that is done the trace is a coplanar waveguide, not a microstrip, and the 50 ohm above is not what the board will actually do
 - Chase up the two 0.2mm segments still sitting on the antenna nets
-- Get a real 4-layer quote from JLCPCB. The $10.00 in the README was a 2-layer estimate and is now marked pending rather than guessed at
+- Get a real 4-layer quote from JLCPCB. The $10.00 in the README was a 2-layer estimate and is now marked pending rather than guessed at. Done on the 29th, it came out at $8.10
 
 ## Screenshots:
 
 ![Antenna trace impedance on the new stackup, and its tolerance across the fab spread](images/pcb/05-antenna-impedance.png)
+
+**Total time spent: 1 hour**
+
+# September 26: Fabrication package and the crystal footprint
+
+## What I did:
+
+- Exported the full fabrication package into kicad/production/
+- Changed the crystal footprint from HC-52/U vertical to an SMD 3225 4-pad (Crystal_SMD_3225-4Pin_3.2x2.5mm) across the schematic and the board
+- Grew the board outline to the 50.0 x 30.0mm
+
+## Why:
+
+- HC-52/U is not a part anyone stocks. Worth swapping for something orderable before ordering rather than after
+- Going to a 4-pad SMD part is a bigger change than the through-hole swap I had planned, because the extra two pads have to be tied to ground rather than left floating
+- Exporting the whole package in one go is how you find out that a footprint is broken. Anything missing
+
+## Screenshots:
+
+![X1 after the swap, the 3225 SMD crystal at 3.2x2.5mm with the two load caps around it](images/pcb/07-crystal-3225-smd.png)
+
+**Total time spent: 1 hour**
+
+# September 29: Real 4-layer quote, and what the impedance tolerance actually is
+
+## What I did:
+
+- Uploaded kicad/production/nRF24.zip to the JLCPCB instant quote instead of keeping the 2-layer estimate
+- Got $8.10 for 5 boards of 4 layer 30x50mm: $8.00 of that is a special offer and $0.10 is edge rounding. The JLCONE desktop tier came out at $2.10 for the same order
+- Checked what JLCPCB actually holds the trace width to, and it is +/-10% So the 0.46mm run lands in 45-55 ohm
+- Added controlled impedance to the BOM as a line with an unknown cost, because the instant quote returned impedanceFlag=no and would not show the surcharge
+
+## Why:
+
+- I nearly wrote +/-20% into the BOM.
+- Controlled impedance is worth a line in the BOM even at an unknown price because it is quite important for board function
+
+## Screenshots:
+
+![The JLCPCB instant quote: 4 layer 30x50mm, 5 boards, $8.10 on the web tier and $2.10 on JLCONE](images/screenshots/2026-0929-quote.png)
 
 **Total time spent: 1 hour**

@@ -13,7 +13,7 @@ SPI header. Runs from 3.3V or 5V off an on-board LDO.
 - nRF24L01P+ 2.4GHz transceiver
 - RFX2401C external PA/LNA for roughly +20dBm in TX and LNA gain in RX
 - Discrete LC balun + harmonic filter
-- LC match and DC block from the PA/LNA out to the SMA jack (0.3pF and 1.5pF C0G caps, 2.3nH to 12nH inductors)
+- LC match and DC block from the PA/LNA out to the SMA jack
 - Right-angle SMA jack mounted on the board edge, for a real whip or panel antenna
 - 16MHz crystal with matched load caps and bias resistor
 - PA supply decoupled separately from the digital rail
@@ -27,7 +27,7 @@ SPI header. Runs from 3.3V or 5V off an on-board LDO.
 - The nRF24L01P+ differential PA outputs go through the LC balun and harmonic filter to become a single 50 ohm line which lands on the RFX2401C PA/LNA.
 - The PA amplifies it and sends it through an LC match and DC block onto the SMA jack. In the other direction the LNA boosts received signals back down the same line.
 
-The 16MHz crystal clocks the radio; a 1M bias resistor plus 22pF load caps set
+The 16MHz crystal clocks the radio, a 1M bias resistor plus 22pF load caps set
 the oscillator frequency.
 
 ### Power Tree
@@ -76,31 +76,20 @@ The PA/LNA sits on the RF line between the radio and the SMA, which hangs off th
 
 ## BOM (Bill of Materials)
 
-Every part is sourced from LCSC, which is the parts catalog inside JLCPCB, so
-components and bare boards can be ordered from the same cart. Quantities in
-[BOM.csv](BOM.csv) are rounded up to each part's minimum order quantity, so the
-per-board figure is what one board costs in parts and the grand total is what
-the first order actually costs.
-
 | Item | Cost |
 |------|------|
-| Components (per board) | $5.56 |
-| Components (first order, MOQ rounded, 5 boards) | $14.99 |
-| PCB (qty 5, 4-layer) | pending quote |
-| **Total (5 boards, parts + boards)** | **$14.99 + board cost** |
+| Components (per board) | $6.55 |
+| Components (first order, MOQ rounded, 5 boards) | $20.12 |
+| PCB (qty 5, 4-layer) | $8.10 ($1.62/board) |
+| Controlled impedance (optional) | not quoted |
+| **Total (5 boards, parts + boards)** | **$28.22** |
+| Shipping (economy direct line, 8-13 business days) | $8.47 |
 
-The component figures are unaffected by the move to 4 layers. The board cost is
-blank because the $10.00 previously shown was a 2-layer estimate and the stackup
-changed after that number was worked out. Drop the real quote in when you have
-it.
-
-The gap between the two component figures is reel minimums. 14 of the 25 line
-items have a minimum of 50 or 100, and those account for most of it.
-
-Shipping, tax and the optional SMT assembly fee are not included. A stencil is
-listed in the BOM but is not being ordered; you would only need it if you want
-JLCPCB to solder the two fine-pitch parts (U1 QFN-20, U2 SOT-23-5). Hand
-soldering both is straightforward and cheaper.
+Quoted 2026-09-29 from the JLCPCB instant quote on the uploaded gerbers. The
+detected board is 4 layer 30x50mm, qty 5. The $8.10 is a web-tier price made up of
+a $8.00 promo plus $0.10 edge rounding; the JLCONE desktop tier came out at $2.10
+for the same order. Shipping, tax, rush and controlled impedance are all outside
+that number. Confirm the total at checkout, the promo may not persist.
 
 See [BOM.csv](BOM.csv) for the full part list with LCSC part numbers, prices and
 supplier links.
@@ -121,9 +110,9 @@ are also 0.4mm and stay paired until the balun. 221 through vias, mostly
 stitching the top layer down to the In1.Cu ground plane.
 
 The 0.4mm width is close but not exact. Over 0.2104mm of prepreg, 0.4mm works
-out to 54 ohm and 0.46mm works out to 50, which stays inside 46-54 ohm across
-the prepreg and er spread JLCPCB actually holds. The 0.06mm change has not been
-made yet. See Known Issues.
+out to 54 ohm and 0.46mm works out to 50, which stays inside the 45-55 ohm band
+that JLCPCB's published +/-10% impedance tolerance allows on 4 layer and up. The
+0.06mm change has not been made yet. See Known Issues.
 
 ## Repository Structure
 
@@ -144,7 +133,7 @@ made yet. See Known Issues.
 ## Known Issues
 
 - Board is routed but unassembled and untested
-- The antenna-side trace is 0.4mm over 0.2104mm of prepreg, which works out to 54 ohm rather than 50. 0.46mm is the correct width: 50 ohm nominal, 46-54 ohm across the prepreg and er spread. It is a 0.06mm change to 16.8mm of track and has not been made yet
+- The antenna-side trace is 0.4mm over 0.2104mm of prepreg, which works out to 54 ohm rather than 50. 0.46mm is the correct width: 50 ohm nominal, inside the 45-55 ohm band JLCPCB publishes as its +/-10% tolerance on 4 layer. It is a 0.06mm change to 16.8mm of track and has not been made yet
 - The F.Cu ground pour still runs right up to the antenna trace. On 4 layers that turns the trace into a coplanar waveguide and drops it below the calculated figure, so In1.Cu is not yet the only reference. The pour has to be cleared back from that run before the width number above means anything
 - Two segments on the antenna nets are still 0.2mm rather than the surrounding width. 0.2mm is about 110 ohm on this stackup, so that is fine as pad fanout and a step discontinuity anywhere else. Worth checking which of the two it is
 - All 221 vias are through vias, so every ground via punches an anti-pad in the In2.Cu +3.3V plane. Harmless at 3.3V, but it is a lot of voids in the rail
@@ -153,7 +142,7 @@ made yet. See Known Issues.
 - TXEN/RXEN control of the RFX2401C is wired to VDD_PA and CE through 1k resistors - direction switching is a prototype hack, revisit if it misbehaves
 - Two schematic parts are not orderable as drawn, so the footprints need editing before fabrication
   - L1 (2.3nH) and L3 (7.9nH) are drawn as 0603 but no 0603 part exists at those values; every 0603-numbered 2.3nH in the catalog is physically 0201. Both are specced as 0402, which lands inside the existing 0603 pads so no traces have to move
-  - X1 is drawn as HC-52/U, which no supplier carries, and is specced as an HC-49S instead. That one does change the pad pitch from 3.8mm to 4.88mm, so the footprint has to be swapped and the two load caps nudged
+  - X1 was drawn as HC-52/U, which no supplier carries. The footprint is now an SMD 3225 4-pad and the BOM specced an SMD 3225 part to match, so this one is resolved. Worth knowing: the load caps are 22pF, which puts the network at roughly 13-15pF against a 12pF crystal, so it will run slightly low. The 22pF is the odd one out, not the crystal
 - L2 (12nH) has a self-resonant frequency of 3GHz, uncomfortably close to the 2.4GHz operating point. 0603 inductors are marginal this high up; if the match does not settle, the fix is a larger inductor package, not a different value
 - J2 is a generic 4-post THT SMA standing in for the Amphenol 901-143 the footprint is named after. The datasheet drawing for the substitute has not been checked against the footprint's ground-post pattern, so confirm the two agree before ordering boards
 - U1 is a genuine Nordic nRF24L01P. The Si24R1 is pin-compatible and about 5x cheaper, but it is a different part and the radio registers and PA current draw both shift, so it sits in the BOM notes rather than in the design
